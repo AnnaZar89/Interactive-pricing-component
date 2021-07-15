@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Document</title>
+  <!--  https://www.frontendmentor.io/challenges/interactive-pricing-component-t0m8PIyY8-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /*Whole article*/
+
+    body {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      color: hsl(225, 20%, 60%);
+      background-color: hsl(230, 100%, 99%);
+      background-image: url('bg-pattern.svg');
+
+
+      background-repeat: no-repeat;
+      background-position: 0% 0%;
+      height: 130vh;
+
+    }
+
+
+
+    .title {
+      width: 100%;
+      height: 30%;
+      /*      font-size: 18px;*/
+    }
+
+    .title h1 {
+      padding-top: 7%;
+      text-align: center;
+      font-size: 35px;
+      line-height: 12px;
+      font-weight: 800;
+      color: hsl(227, 35%, 25%);
+    }
+
+    .title p {
+      font-size: 16px;
+      text-align: center;
+    }
+
+    .title::before {
+      background: url('pattern-circles.svg');
+      content: "";
+      position: absolute;
+      opacity: 0.6;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-position: center top 15%;
+      background-repeat: no-repeat;
+    }
+
+
+
+
+    .component {
+
+
+      position: absolute;
+
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 3%;
+      width: 30%;
+      border: none;
+      box-shadow: 0 3px 30px rgb(0 0 0 / 0.2);
+      border-radius: 15px;
+      background-color: white;
+
+
+    }
+
+    /*ACCOUNT*/
+    .account {
+      padding-bottom: 8%;
+
+
+    }
+
+    .firstLine {
+      display: flex;
+      padding-bottom: 8%;
+
+    }
+
+    .viewnumber {
+      margin-right: auto;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin-top: 2%;
+
+    }
+
+
+    .price span {
+
+      font-size: 32px;
+      color: black;
+    }
+
+
+
+    #inp1 {
+      -webkit-appearance: none;
+      /* Override default CSS styles */
+      appearance: none;
+      position: relative;
+      width: 100%;
+      height: 10px;
+      margin-bottom: 10%;
+      background-color: hsl(224, 65%, 95%);
+    }
+
+
+
+    #inp1::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      border-radius: 25px;
+      width: 34px;
+      height: 34px;
+      box-shadow: 0px 8px 10px 5px hsl(174, 77%, 80%);
+      background: hsl(174, 86%, 45%);
+      cursor: pointer;
+    }
+
+
+    /* TOGGLE SWITCH
+    The switch - the box around the slider */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 20px;
+      margin-left: 5px;
+      margin-right: 5px;
+      transform: translateY(4px);
+
+    }
+
+    /* Hide default HTML checkbox */
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+
+    }
+
+    /* The slider */
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+
+      background-color: hsl(223, 50%, 87%);
+      /*      -webkit-transition: .4s;*/
+      transition: .4s;
+
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 4px;
+      bottom: 2px;
+
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    input:checked+.slider {
+      background-color: hsl(174, 86%, 45%);
+    }
+
+
+    input:checked+.slider:before {
+      -webkit-transform: translateX(16px);
+      -ms-transform: translateX(16px);
+      transform: translateX(16px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+      border-radius: 60px;
+    }
+
+    .slider.round:before {
+      border-radius: 50%;
+    }
+
+    .monthlyBilling {
+      margin-left: 15%;
+      font-size: 12px;
+    }
+
+    .yearlyBilling {
+      font-size: 12px;
+    }
+
+    .discount {
+
+      border-radius: 25px;
+      padding: 2%;
+      margin-left: 3%;
+      font-size: 12px;
+      background-color: hsl(14, 92%, 95%);
+      color: hsl(15, 100%, 70%);
+    }
+
+
+
+
+    hr {
+
+      margin-left: -40px;
+      margin-right: -40px;
+      border: 0;
+      height: 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+
+
+    }
+
+
+
+    /*DESCRIPTION*/
+
+    .description {
+      display: flex;
+      padding-top: 8%;
+    }
+
+
+    .listOfItems {
+      width: 60%;
+    }
+
+
+    input[type="checkbox"] {
+      display: none;
+    }
+
+
+
+    input[type="checkbox"]:disabled+label:before {
+
+      content: '✓';
+      border: none;
+      text-align: center;
+      line-height: 30px;
+      font-size: 15px;
+      color: hsl(174, 86%, 45%);
+      background: white;
+      padding-right: 2%;
+
+
+    }
+
+
+
+
+
+    /*--------------------------------------------------------------------------------------------------*/
+    .btn {
+      margin-left: auto;
+      margin-top: 5%;
+      padding: 0 6%;
+      border: 0px solid white;
+      border-radius: 25px;
+      height: 40px;
+      background-color: hsl(227, 35%, 25%);
+      font-weight: 700;
+      color: white;
+      transition: .3s;
+    }
+
+    .btn:hover {
+      background-color: hsl(174, 86%, 45%);
+      cursor: pointer;
+    }
+
+
+    @media (orientation: landscape) and (max-width:1366px) {
+
+      .title h1 {
+        padding-top: 12%;
+
+      }
+
+      .component {
+
+        top: 52%;
+
+
+      }
+
+
+
+    }
+
+
+    @media (orientation: landscape) and (max-width:1280px) {
+
+      .title h1 {
+        padding-top: 7%;
+
+      }
+
+      .component {
+
+        top: 80%;
+
+      }
+    }
+
+
+    @media (orientation: landscape) and (max-width:1024px) {
+
+      .title h1 {
+        padding-top: 13%;
+
+      }
+
+      .component {
+
+        top: 65%;
+
+      }
+    }
+
+    @media (orientation: landscape) and (max-width:824px) {
+
+      body {
+
+        background-position: 0% -20%;
+        height: 160vh;
+
+      }
+
+      .title h1 {
+        padding-top: 8%;
+
+      }
+
+      .component {
+
+        top: 105%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 3%;
+        width: 60%;
+
+      }
+
+      .title::before {
+
+        background-position: center top 10%;
+
+      }
+    }
+
+
+    @media (orientation: landscape) and (max-width:736px) {
+
+      body {
+
+        background-position: 0% -20%;
+        height: 160vh;
+
+      }
+
+      .title h1 {
+        padding-top: 8%;
+
+      }
+
+      .component {
+
+        top: 90%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 3%;
+        width: 60%;
+
+      }
+
+      .title::before {
+
+        background-position: center top 10%;
+
+      }
+    }
+
+
+
+    @media (orientation: landscape) and (max-width:668px) {
+
+
+      .title h1 {
+        padding-top: 8%;
+
+      }
+
+      .component {
+
+        top: 100%;
+      }
+
+    }
+
+
+
+    @media (orientation: landscape) and (max-width:569px) {
+
+      body {
+        height: 250vh;
+
+      }
+
+      .title h1 {
+        padding-top: 8%;
+
+      }
+
+      .account {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        padding-top: 3%;
+
+
+      }
+
+
+      .component {
+        display: flex;
+        /*        position: relative;*/
+
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 15%;
+        top: 115%;
+        width: 80%;
+
+      }
+
+      .firstLine {
+        width: 100%;
+        flex-wrap: wrap;
+      }
+
+      .firstLine .viewnumber {
+        display: flex;
+        order: 0;
+        flex-basis: 100%;
+        justify-content: center;
+        margin-top: 2%;
+        font-size: 16px;
+
+      }
+
+
+
+      .firstLine .price {
+
+        /*        display: flex;*/
+        position: absolute;
+        top: 26%;
+        width: 100%;
+        margin-top: 2%;
+
+        text-align: center;
+
+      }
+
+      .monthlyBilling {
+        margin-left: 5%;
+        margin-top: 15%;
+      }
+
+
+
+      .yearlyBilling {
+        margin-top: 15%;
+      }
+
+      .discount {
+        margin-top: 13%;
+
+      }
+
+      .slider {
+        transform: translateY(300%)
+      }
+
+
+      hr {
+        display: none;
+      }
+
+
+
+
+      .description {
+
+        display: flex;
+        flex-direction: column;
+        flex-basis: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-top: 5%;
+        border-top: 0.2px solid #e8e3e3;
+
+
+      }
+
+      .listOfItems {
+        display: block;
+        width: 40%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+
+
+
+
+
+      .btn {
+
+
+        width: 35%;
+        margin: 5% auto;
+
+      }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    /*----------------------------------------------------------------------------------------------------*/
+
+    @media (orientation: portrait) and (max-height:1367px) {
+      body {
+        height: 95vh;
+        font-size: 20px;
+      }
+
+      .title h1 {
+        padding-top: 15%;
+
+      }
+
+
+      .title::before {
+
+        background-position: center top 10%;
+
+      }
+
+      .component {
+
+        top: 40%;
+        width: 50%;
+
+      }
+    }
+
+    @media (orientation: portrait) and (max-height:1025px) {
+      .component {
+
+        top: 55%;
+        width: 60%;
+        height: 40vh;
+
+      }
+    }
+
+    @media (orientation: portrait) and (max-height:824px) {
+      body {
+        font-size: 20px;
+        height: 110vh;
+      }
+
+      .title h1 {
+
+        line-height: 50px;
+      }
+
+      .title p {
+        margin: auto 5%;
+      }
+
+      .component {
+        display: flex;
+        flex-direction: column;
+        top: 67%;
+        width: 80%;
+        height: 60vh;
+      }
+
+      .account {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        padding-top: 3%;
+        /*        padding-bottom: 3%;*/
+
+
+      }
+
+
+      .firstLine .viewnumber {
+        display: flex;
+        order: 0;
+        flex-basis: 100%;
+        justify-content: center;
+        padding-top: 12%;
+        /*        font-size: 16px;*/
+
+      }
+
+      .firstLine .price {
+
+        /*        display: flex;*/
+        position: absolute;
+        top: 26%;
+        left: 50%;
+        width: 100%;
+        transform: translateX(-50%);
+        margin-top: 2%;
+        text-align: center;
+
+      }
+
+      .monthlyBilling {
+        margin-left: 5%;
+        margin-top: 20%;
+
+      }
+
+
+
+      .yearlyBilling {
+        margin-top: 20%;
+      }
+
+      .discount {
+        margin-top: 18%;
+        padding-bottom: 4%;
+
+      }
+
+      .slider {
+
+        transform: translateY(300%);
+      }
+
+
+      hr {
+        display: none;
+      }
+
+      .description {
+
+        display: flex;
+        flex-direction: column;
+        flex-basis: 100%;
+        flex-wrap: wrap;
+
+        padding-top: 8%;
+        border-top: 0.2px solid #e8e3e3;
+
+
+      }
+
+      .listOfItems {
+        /*        display: block;*/
+        position: absolute;
+        top: 57%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 65%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+
+
+
+
+
+
+      .btn {
+
+        /*        margin-top: 80%;*/
+        width: 35%;
+        margin: 40% auto;
+
+      }
+    }
+
+    @media (orientation: portrait) and (max-height:812px) {
+
+      .component {
+        height: 70vh;
+        top: 70%;
+      }
+
+      .account {
+        padding-bottom: 16%;
+      }
+
+      .firstLine .price {
+        top: 23%;
+      }
+
+      .monthlyBilling {
+        margin-left: -2%;
+        margin-top: 24%;
+      }
+
+      .slider {
+        top: -11%;
+
+      }
+
+      .yearlyBilling {
+
+        margin-top: 24%;
+      }
+
+      .discount {
+        margin-top: 22%;
+      }
+
+      .btn {
+        margin: 58% auto;
+      }
+    }
+
+
+    @media (orientation: portrait) and (max-height:737px) {
+
+      .component {
+        top: 75%;
+      }
+
+      .firstLine .price {
+        top: 26%;
+
+      }
+
+      .slider {
+        top: -18%;
+
+      }
+
+      .listOfItems {
+        top: 63%;
+      }
+
+      .btn {
+        margin: 38% auto;
+      }
+    }
+
+
+    @media (orientation: portrait) and (max-height:668px) {
+      .component {
+        top: 80%;
+        height: 77vh;
+      }
+
+      .listOfItems {
+        top: 59%;
+      }
+
+      .btn {
+        margin: 50% auto;
+      }
+    }
+
+    @media (orientation: portrait) and (max-height:642px) {
+      .account {
+        padding-bottom: 10%;
+
+      }
+
+      .monthlyBilling {
+        display: block;
+        margin-left: 2%;
+        height: 40px;
+        width: 18%;
+        margin-right: 0%;
+
+      }
+
+      .discount {
+        height: 10%;
+        padding: 2%;
+      }
+
+      .listOfItems {
+        font-size: 16px;
+      }
+
+      .btn {
+        margin: 44% auto;
+      }
+    }
+
+    @media (orientation: portrait) and (max-height:534px) {
+      .component {
+        top: 100%;
+        height: 94vh;
+
+      }
+
+      .firstLine {
+        padding-bottom: 20%;
+      }
+
+      .firstLine .price {
+        top: 32%;
+      }
+
+      .monthlyBilling {
+        margin-top: 35%;
+        margin-left: -3%;
+      }
+
+      .slider {
+        top: 140%;
+        height: 20px;
+      }
+
+      .yearlyBilling {
+        margin-top: 35%;
+      }
+
+      .discount {
+        margin-top: 32%;
+      }
+
+      .listOfItems {
+        top: 64%;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class='title'>
+    <h1>Simple, traffic-based pricing</h1>
+    <p>Sign-up for our 30-day trial. No credit card required.</p>
+
+  </div>
+  <article class='component'>
+    <div class="account">
+      <div class='firstLine'>
+        <div class='viewnumber'><span class='numOfViews'>100K</span> Pageviews</div>
+        <div class='price'><span>$16</span>
+          / month
+        </div>
+        <!--        <input type='range' min='10' max='50' id='inp1' value="30" step='10'></input><br>-->
+      </div>
+      <input type='range' min='10' max='50' id='inp1' value="30" step='10'></input><br>
+
+
+      <span class="monthlyBilling">Monthly billing</span>
+      <label class="switch">
+        <input type="checkbox">
+        <span class="slider round"></span>
+      </label>
+      <span class="yearlyBilling">Yearly billing</span>
+      <span class="discount">25% discount</span>
+
+
+    </div>
+    <hr>
+
+
+
+
+    <div class='description'>
+      <div class='listOfItems'>
+        <input type="checkbox" id='disabled1' checked disabled></input><label for="disabled1"></label>Unlimited websites<br>
+        <input type="checkbox" id='disabled2' checked disabled></input><label for="disabled2"></label>100% data ownership<br>
+        <input type="checkbox" id='disabled3' checked disabled></input><label for="disabled3"></label>Email reports<br>
+
+      </div>
+
+      <button class='btn'>Start my trial</button>
+    </div>
+  </article>
+
+
+
+
+
+  <script>
+    let inp1 = document.getElementById('inp1');
+    const price = document.querySelector('.price span');
+    const numberOfViews = document.querySelector('.numOfViews');
+    let checkbox = document.querySelector('.switch input');
+
+    function updatedPrice() {
+
+      if (checkbox.checked == false) {
+
+        monthly();
+
+      } else {
+
+        yearly();
+
+      };
+
+    };
+
+
+    inp1.addEventListener('input', updatedPrice);
+    checkbox.addEventListener('click', updatedPrice);
+
+
+
+
+    function monthly() {
+      if (Number(inp1.value) === 10) {
+        numberOfViews.innerHTML = '10K';
+        price.innerHTML = '$' + 8.00;
+
+      } else if (Number(inp1.value) === 20) {
+        numberOfViews.innerHTML = '50K';
+        price.innerHTML = '$' + 12.00;
+      } else if (Number(inp1.value) === 30) {
+        numberOfViews.innerHTML = '100K';
+        price.innerHTML = '$' + 16.00;
+      } else if (Number(inp1.value) === 40) {
+        numberOfViews.innerHTML = '500K';
+        price.innerHTML = '$' + 24.00;
+      } else if (Number(inp1.value) === 50) {
+        numberOfViews.innerHTML = '1M';
+        price.innerHTML = '$' + 36.00;
+      };
+    }
+
+    function yearly() {
+      let x = 0;
+
+      if (Number(inp1.value) === 10) {
+        numberOfViews.innerHTML = '10K';
+
+        x = 8.00 - (25 / 100 * 8.00);
+        price.innerHTML = '$' + x;
+
+
+      } else if (Number(inp1.value) === 20) {
+        numberOfViews.innerHTML = '50K';
+        //        price.innerHTML = (12.00 * 12) - 25 / 100;
+        //124 -31 = 93
+        x = 12.00 - (25 / 100 * 12.00);
+        price.innerHTML = '$' + x;
+      } else if (Number(inp1.value) === 30) {
+        numberOfViews.innerHTML = '100K';
+        //        price.innerHTML = (16.00 * 12) - 25 / 100;
+
+        x = 16.00 - (16.00 / 100 * 16.00);
+        price.innerHTML = '$' + Math.round(x);
+      } else if (Number(inp1.value) === 40) {
+        numberOfViews.innerHTML = '500K';
+
+        x = 24.00 - (25 / 100 * 24.00);
+        price.innerHTML = '$' + x;
+
+        //        price.innerHTML = (24.00 * 12) - 25 / 100;
+      } else if (Number(inp1.value) === 50) {
+        numberOfViews.innerHTML = '1M';
+        //        price.innerHTML = (36.00 * 12) - 25 / 100;
+
+        x = 36.00 - (36 / 100 * 36.00);
+        price.innerHTML = '$' + Math.round(x);
+      };
+    };
+
+
+
+    /*
+    - chcę wpisać odpowiednią wartość z tablicy tab do spana, by dana wartość była widoczna na stronie
+    - wartość zawarta w spanie ma odpowiadać odpowiedniej wartości suwaka*/
+
+  </script>
+</body>
+
+</html>
