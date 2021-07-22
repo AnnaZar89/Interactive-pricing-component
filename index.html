@@ -104,6 +104,11 @@
 
     }
 
+    .price {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
     .price span {
 
@@ -135,6 +140,22 @@
       box-shadow: 0px 8px 10px 5px hsl(174, 77%, 80%);
       background: hsl(174, 86%, 45%);
       cursor: pointer;
+    }
+
+    .colorOfRange {
+
+      position: absolute;
+      width: 40%;
+      height: 10px;
+
+      top: 28%;
+
+      /*      right: 7%;*/
+      /*      left: 0%;*/
+
+      background-color: hsl(174, 86%, 45%);
+      border-radius: 25px;
+
     }
 
 
@@ -198,6 +219,8 @@
       -ms-transform: translateX(16px);
       transform: translateX(16px);
     }
+
+
 
     /* Rounded sliders */
     .slider.round {
@@ -301,6 +324,9 @@
     }
 
 
+    /*MEDIA*/
+
+
     @media (orientation: landscape) and (max-width:1366px) {
 
       .title h1 {
@@ -342,6 +368,10 @@
 
       }
 
+      .colorOfRange {
+        top: 26%;
+      }
+
       .component {
 
         top: 65%;
@@ -373,6 +403,14 @@
 
       }
 
+      #inp1 {
+        width: 94%;
+      }
+
+      .colorOfRange {
+        top: 28%;
+      }
+
       .title::before {
 
         background-position: center top 10%;
@@ -394,6 +432,16 @@
         padding-top: 8%;
 
       }
+
+      #inp1 {
+        width: 94%;
+      }
+
+      .colorOfRange {
+        top: 28%;
+      }
+
+
 
       .component {
 
@@ -422,6 +470,16 @@
 
       }
 
+      #inp1 {
+        width: 95%;
+      }
+
+      .colorOfRange {
+        top: 27%;
+      }
+
+
+
       .component {
 
         top: 100%;
@@ -442,6 +500,9 @@
         padding-top: 8%;
 
       }
+
+
+
 
       .account {
         display: flex;
@@ -521,6 +582,22 @@
       }
 
 
+      #inp1 {
+        width: 90%;
+        /*        display: block;*/
+
+
+      }
+
+
+      .colorOfRange {
+
+        top: 20%;
+        left: 8%;
+
+      }
+
+
 
 
       .description {
@@ -561,24 +638,37 @@
 
 
 
-
-
-
-
-
-
-
-
     /*----------------------------------------------------------------------------------------------------*/
 
-    @media (orientation: portrait) and (max-height:1367px) {
+    @media (orientation: portrait) and (max-height:1370px) {
+
+      .title h1 {
+        padding-top: 20%;
+      }
+
+      .component {
+        width: 35%;
+      }
+
+      .colorOfRange {
+        top: 27%;
+      }
+
+      .monthlyBilling {
+        margin-left: 10%;
+
+      }
+    }
+
+
+    @media (orientation: portrait) and (max-height:1290px) {
       body {
         height: 95vh;
         font-size: 20px;
       }
 
       .title h1 {
-        padding-top: 15%;
+        padding-top: 25%;
 
       }
 
@@ -591,19 +681,100 @@
 
       .component {
 
-        top: 40%;
-        width: 50%;
+
+        top: 47%;
+        width: 80%;
+        height: 42%;
 
       }
+
+      .viewnumber {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .price {
+        position: absolute;
+        top: 28%;
+        left: 0%;
+        width: 100%;
+      }
+
+      #inp1 {
+        width: 93%;
+        left: 2%;
+
+      }
+
+      .colorOfRange {
+        top: 18%;
+        left: 6%;
+        width: 45%;
+      }
+
+      .monthlyBilling {
+        display: inline-block;
+        margin-top: 18%;
+      }
+
+      .description {
+        flex-direction: column;
+
+
+      }
+
+      .listOfItems {
+        width: 50%;
+        align-self: center;
+      }
+
+      .btn {
+        margin-left: auto;
+        margin-right: auto;
+        width: 30%;
+
+
+      }
+
     }
 
     @media (orientation: portrait) and (max-height:1025px) {
+
+      .title::before {
+        top: 2%;
+      }
+
+      .title h1 {
+        padding-top: 18%;
+      }
+
       .component {
 
         top: 55%;
         width: 60%;
         height: 40vh;
 
+      }
+
+      .viewnumber {
+        margin-left: 0%;
+      }
+
+      .price {
+        position: static;
+        width: 40%;
+      }
+
+      .colorOfRange {
+        top: 25%;
+      }
+
+      .monthlyBilling {
+        margin-top: 5%;
+      }
+
+      .description {
+        flex-direction: row;
       }
     }
 
@@ -688,6 +859,10 @@
         transform: translateY(300%);
       }
 
+      .colorOfRange {
+        top: 19%;
+      }
+
 
       hr {
         display: none;
@@ -726,7 +901,7 @@
       .btn {
 
         /*        margin-top: 80%;*/
-        width: 35%;
+        width: 40%;
         margin: 40% auto;
 
       }
@@ -757,6 +932,10 @@
 
       }
 
+      .colorOfRange {
+        top: 16%;
+      }
+
       .yearlyBilling {
 
         margin-top: 24%;
@@ -766,9 +945,15 @@
         margin-top: 22%;
       }
 
-      .btn {
-        margin: 58% auto;
+      .listOfItems {
+        width: 69%;
       }
+
+      .btn {
+        margin: 56% auto;
+      }
+
+
     }
 
 
@@ -788,6 +973,10 @@
 
       }
 
+      .colorOfRange {
+        top: 18.5%;
+      }
+
       .listOfItems {
         top: 63%;
       }
@@ -797,11 +986,63 @@
       }
     }
 
+    @media (orientation: portrait) and (max-height:730px) {
+      .component {
+        height: 80vh;
+      }
+
+      .account {
+        padding-bottom: 14%;
+      }
+
+      #inp1 {
+        width: 92%;
+      }
+
+      .colorOfRange {
+        top: 19%;
+        left: 8%;
+      }
+
+      .monthlyBilling {
+        margin-top: 18%;
+      }
+
+      .yearlyBilling {
+        margin-top: 18%;
+      }
+
+      .discount {
+        margin-top: 16%;
+      }
+
+      .btn {
+        margin: 30% auto;
+      }
+    }
+
 
     @media (orientation: portrait) and (max-height:668px) {
       .component {
         top: 80%;
         height: 77vh;
+      }
+
+
+      .colorOfRange {
+        top: 18%;
+      }
+
+      .monthlyBilling {
+        margin-top: 25%;
+      }
+
+      .yearlyBilling {
+        margin-top: 25%;
+      }
+
+      .discount {
+        margin-top: 23%;
       }
 
       .listOfItems {
@@ -857,9 +1098,13 @@
         top: 32%;
       }
 
+      .colorOfRange {
+        top: 23%;
+      }
+
       .monthlyBilling {
         margin-top: 35%;
-        margin-left: -3%;
+        margin-left: 0%;
       }
 
       .slider {
@@ -869,10 +1114,11 @@
 
       .yearlyBilling {
         margin-top: 35%;
+        width: 16%;
       }
 
       .discount {
-        margin-top: 32%;
+        margin-top: 34%;
       }
 
       .listOfItems {
@@ -899,7 +1145,8 @@
         </div>
         <!--        <input type='range' min='10' max='50' id='inp1' value="30" step='10'></input><br>-->
       </div>
-      <input type='range' min='10' max='50' id='inp1' value="30" step='10'></input><br>
+      <input type='range' min='10' max='50' id='inp1' value="30" step='10'>
+      <div class='colorOfRange'></div></input><br>
 
 
       <span class="monthlyBilling">Monthly billing</span>
@@ -938,6 +1185,7 @@
     const price = document.querySelector('.price span');
     const numberOfViews = document.querySelector('.numOfViews');
     let checkbox = document.querySelector('.switch input');
+    let colorOfRange = document.querySelector('.colorOfRange');
 
     function updatedPrice() {
 
@@ -964,19 +1212,24 @@
       if (Number(inp1.value) === 10) {
         numberOfViews.innerHTML = '10K';
         price.innerHTML = '$' + 8.00;
+        colorOfRange.style.width = '0' + '%';
 
       } else if (Number(inp1.value) === 20) {
         numberOfViews.innerHTML = '50K';
         price.innerHTML = '$' + 12.00;
+        colorOfRange.style.width = '25' + '%';
       } else if (Number(inp1.value) === 30) {
         numberOfViews.innerHTML = '100K';
         price.innerHTML = '$' + 16.00;
+        colorOfRange.style.width = '45' + '%';
       } else if (Number(inp1.value) === 40) {
         numberOfViews.innerHTML = '500K';
         price.innerHTML = '$' + 24.00;
+        colorOfRange.style.width = '64' + '%';
       } else if (Number(inp1.value) === 50) {
         numberOfViews.innerHTML = '1M';
         price.innerHTML = '$' + 36.00;
+        colorOfRange.style.width = '80' + '%';
       };
     }
 
@@ -988,6 +1241,7 @@
 
         x = 8.00 - (25 / 100 * 8.00);
         price.innerHTML = '$' + x;
+        colorOfRange.style.width = '0' + '%';
 
 
       } else if (Number(inp1.value) === 20) {
@@ -996,17 +1250,20 @@
         //124 -31 = 93
         x = 12.00 - (25 / 100 * 12.00);
         price.innerHTML = '$' + x;
+        colorOfRange.style.width = '25' + '%';
       } else if (Number(inp1.value) === 30) {
         numberOfViews.innerHTML = '100K';
         //        price.innerHTML = (16.00 * 12) - 25 / 100;
 
         x = 16.00 - (16.00 / 100 * 16.00);
         price.innerHTML = '$' + Math.round(x);
+        colorOfRange.style.width = '45' + '%';
       } else if (Number(inp1.value) === 40) {
         numberOfViews.innerHTML = '500K';
 
         x = 24.00 - (25 / 100 * 24.00);
         price.innerHTML = '$' + x;
+        colorOfRange.style.width = '64' + '%';
 
         //        price.innerHTML = (24.00 * 12) - 25 / 100;
       } else if (Number(inp1.value) === 50) {
@@ -1015,6 +1272,7 @@
 
         x = 36.00 - (36 / 100 * 36.00);
         price.innerHTML = '$' + Math.round(x);
+        colorOfRange.style.width = '80' + '%';
       };
     };
 
